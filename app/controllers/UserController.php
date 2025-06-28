@@ -26,7 +26,7 @@ class UserController {
 
             // Basic validation for profile update
             if (empty($name) || empty($email)) {
-                flash('error', 'Username and Email are required.');
+                flash('error', 'name and Email are required.');
                 redirect('profile');
             }
 
@@ -38,7 +38,7 @@ class UserController {
             // Check for uniqueness if username/email are changed to existing ones
             $existingUserByUsername = $userModel->findByUsername($name);
             if ($existingUserByUsername && $existingUserByUsername['user_Id'] !== $_SESSION['user_Id']) {
-                flash('error', 'Username already taken by another user.');
+                flash('error', 'name already taken by another user.');
                 redirect('profile');
             }
 
@@ -48,7 +48,7 @@ class UserController {
                 redirect('profile');
             }
 
-            if ($userModel->updateProfile($_SESSION['user_id'], $name, $email)) {
+            if ($userModel->updateProfile($_SESSION['user_Id'], $name, $email)) {
                 $_SESSION['name'] = $name; // Update session username if changed
                 flash('success', 'Profile updated successfully!');
                 redirect('profile');

@@ -74,7 +74,7 @@ class AuthController {
 
             if ($user && password_verify($password, $user['password'])){
                 //login successful
-                $_SESSION['user_Id'] = $user['user_id'];
+                $_SESSION['user_Id'] = $user['user_Id'];
                 $_SESSION['name'] = $user['name'];
 
                 flash('success', 'Welcome, ' . $user['name'] . '!');
