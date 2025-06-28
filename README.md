@@ -40,7 +40,7 @@ HTML: Structure of the web pages.
 
 CSS: Styling of the user interface.
 
-JavaScript (Optional/Minimal): For any front-end interactivity (if implemented).
+JavaScript (Minimal): For any front-end interactivity.
 
 ## Installation and Setup
 
@@ -56,7 +56,7 @@ Composer (optional, but good for PHP dependency management if you expand the pro
 
 1. Clone the repository:
 
-   ```Bash
+   ```bash
    git clone <https://github.com/jus-tin-16/HashTagToDo.git>
    ```
 
@@ -72,17 +72,17 @@ Composer (optional, but good for PHP dependency management if you expand the pro
 
    Start Apache and MySQL services in your XAMPP, WAMP, or Laragon control panel.
 
-   Access phpMyAdmin (usually via <http://localhost/phpmyadmin/>).
+   Access phpMyAdmin (usually via ```<http://localhost/phpmyadmin/>```).
 
-   Create a new database (e.g., hashtagtodo_db).
+   Create a new database (```hashtagtodo```).
 
    Import the provided SQL schema (you'll need to create this if it's not already in the repository). A basic schema might look like this:
 
-4. SQL
+4. Apache
 
-   Import the `database.sql` file
+   Look for ```.htaccess``` in ```/app/public/``` or just within the project folder and double check the configuration. 
 
-   ```Apache
+   ```apache
 
    <IfModule mod_rewrite.c>
        RewriteEngine On
@@ -96,15 +96,16 @@ Composer (optional, but good for PHP dependency management if you expand the pro
        RewriteRule ^(.*)$ index.php/$1 [L]
    </IfModule>
    ```
-
+   If there shall be errors take note of this:
+   
    Important: Adjust RewriteBase `/HashTagToDo/` to match the actual folder name if you're accessing it as `http://localhost/your_folder_name/`. If you've set up a virtual host (e.g., hashtagtodo.test in Laragon), you can usually set RewriteBase /.
 
-5. Access the Application:
+6. Access the Application:
    Open your web browser and navigate to the URL where your project is served.
 
-   XAMPP/WAMP: <http://localhost/HashTagToDo/> (replace HashTagToDo with your actual folder name).
+   XAMPP/WAMP: ```<http://localhost/HashTagToDo/>``` (replace HashTagToDo with your actual folder name).
 
-   Laragon: If you've used Laragon's "Create new project" feature, it will automatically create a virtual host (e.g., <http://hashtagtodo.test/>). Otherwise, it's <http://localhost/HashTagToDo/>.
+   Laragon: If you've used Laragon's "Create new project" feature, it will automatically create a virtual host (e.g., ```<http://hashtagtodo.test/>``` in Laragon). Otherwise, it's ```<http://localhost/HashTagToDo/>```.
 
 ## Project Structure (Expected)
 
@@ -140,9 +141,9 @@ Composer (optional, but good for PHP dependency management if you expand the pro
 
 ## Usage
 
-Register: Navigate to the registration page (/register) to create a new account.
+Register: Navigate to the registration page (```/register```) to create a new account.
 
-Login: After successful registration, log in using your credentials (/login).
+Login: After successful registration, log in using your credentials (```/login```).
 
 Dashboard/To-Do List: Once logged in, you should be redirected to a dashboard or directly to your to-do list where you can manage tasks.
 
