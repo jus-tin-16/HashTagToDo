@@ -1,5 +1,6 @@
 PHP
 <?php include BASE_PATH . '/app/views/layouts/header.php'; ?>
+<!--  Login page -->
 <h2>Login</h2>
 <form action="/<?php echo basename(BASE_PATH); ?>/login" method="POST">
     <div>

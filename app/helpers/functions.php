@@ -1,4 +1,5 @@
 <?php
+//These are functions which does not directly exist in PHP syntaxes, therefore it is custom made.
 // Function to redirect to a different page
 function redirect($path) {
     header('Location: /' . basename(BASE_PATH) . '/' . $path); // Adjust if not in a subfolder

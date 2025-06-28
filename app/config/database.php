@@ -1,4 +1,5 @@
 <?php
+//database config
 //Database configuration
 define('DB_HOST', 'localhost');
 define('DB_NAME', 'hashtagtodo');

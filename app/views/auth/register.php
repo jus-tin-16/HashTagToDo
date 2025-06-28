@@ -1,4 +1,5 @@
 <?php include BASE_PATH . '/app/views/layouts/header.php'; ?>
+<!--  Register page -->
 <h2>Register</h2>
 <form action="/<?php echo basename(BASE_PATH); ?>/register" method="POST">
     <div>

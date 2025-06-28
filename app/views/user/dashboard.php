@@ -1,4 +1,5 @@
 <?php include BASE_PATH . '/app/views/layouts/header.php'; ?>
+<!--  Dashboard page -->
 <h2>Welcome to Your Dashboard, <?php echo htmlspecialchars($_SESSION['username']); ?>!</h2>
 <p>This is your personalized area.</p>
 <p>Here you can add content related to your portfolio twist.</p>

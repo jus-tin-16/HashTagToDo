@@ -1,4 +1,5 @@
 <?php include BASE_PATH . '/app/views/layouts/header.php'; ?>
+<!--  Home page -->
 <h1>Welcome #ToDo!</h1>
 <p>This is a simple web application for to do list.</p>
 <?php if (!isset($_SESSION['user_id'])): ?>

@@ -1,4 +1,5 @@
 <?php 
+//index where all routing is happening
 //Start session for handling user sessions and flash messages
 session_start();
 

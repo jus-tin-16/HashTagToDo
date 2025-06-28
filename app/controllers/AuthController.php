@@ -2,7 +2,6 @@
 //login, registration and logout logic
 class AuthController {
     public function register() {
-        require_once BASE_PATH . '/app/views/auth/register.php';
         $userModel = new User();
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST'){
@@ -11,26 +10,31 @@ class AuthController {
             $password = $_POST['password'];
             $conPassword = $_POST['confirm_password'];
 
+            //Check if fields are empty
             if (empty($name) || empty($email) || empty($password)){
                 flash('error', 'All fields are required');
                 redirect('register');
             }
 
+            //Check if email is in valid format
             if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
                 flash('error', 'Invalid email format.');
                 redirect('register');
             }
 
+            //Checks if Email is registered
             if ($userModel->findByEmail($email)) {
                 flash('error', 'Email already registered.');
                 redirect('register');
             }
 
+            //Checks if password is at minimum
             if (strlen($password) < 6) { // Example: minimum 6 chars
                 flash('error', 'Password must be at least 6 characters.');
                 redirect('register');
             }
 
+            //Match the password
             if ($password !== $conPassword) {
                 flash('error', 'Passwords do not match.');
                 redirect('register');
@@ -48,6 +52,8 @@ class AuthController {
                 redirect('register');
             }
         }
+
+        //Opens the register page
         require_once BASE_PATH . '/app/views/auth/register.php';
     }
 
@@ -63,6 +69,7 @@ class AuthController {
                 redirect('login');
             }
 
+            //Search if email exist or user is registered
             $user = $userModel->findByEmail($email);
 
             if ($user && password_verify($password, $user['password'])){
@@ -77,6 +84,7 @@ class AuthController {
                 redirect('login');
             }
         }
+        //opens login page
         require_once BASE_PATH . '/app/views/auth/login.php';
     }
 }

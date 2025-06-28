@@ -1,3 +1,4 @@
+<!--  Footer -->
 </main>
     <footer>
         <p>&copy; <?php echo date('Y'); ?> Web App</p>
