@@ -40,7 +40,7 @@ class AuthController {
                 redirect('register');
             }
 
-            //hashing passwored
+            //hashing password
             $hashedPass = password_hash($password, PASSWORD_DEFAULT);
 
             //Create user
@@ -86,6 +86,13 @@ class AuthController {
         }
         //opens login page
         require_once BASE_PATH . '/app/views/auth/login.php';
+    }
+
+    public function logout() {
+        session_unset();   // Unset all session variables
+        session_destroy(); // Destroy the session
+        flash('success', 'You have been logged out.');
+        redirect('login');
     }
 }
 ?>

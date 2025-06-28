@@ -35,16 +35,16 @@ if($request_uri == ''|| $request_uri == 'home'){
 } elseif ($request_uri == 'register') {
     $authController = new AuthController();
     $authController->register();
-} /*elseif ($request_uri == 'logout') {
+} elseif ($request_uri == 'logout') {
     $authController = new AuthController();
     $authController->logout();
-} */ /*elseif ($request_uri == 'dashboard' && isset($_SESSION['user_id'])) { // Protected route
-    $userController = new ();
+} elseif ($request_uri == 'dashboard' && isset($_SESSION['user_Id'])) { // Protected route
+    $userController = new UserController();
     $userController->dashboard();
-} elseif ($request_uri == 'profile' && isset($_SESSION['user_id'])) { // Protected route
-    $userController = new userController();
-    $userController->profile(); //For Profile edit/view */
- else {
+} elseif ($request_uri == 'profile' && isset($_SESSION['user_Id'])) { // Protected route
+    $userController = new UserController;
+    $userController->profile(); //For Profile edit/view 
+} else {
     // 404 error
     http_response_code(404);
     include BASE_PATH . '/app/views/404.php';

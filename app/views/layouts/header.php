@@ -14,7 +14,7 @@
             <?php if (isset($_SESSION['user_id'])): ?>
                 <a href="/<?php echo basename(BASE_PATH); ?>/dashboard">Dashboard</a>
                 <a href="/<?php echo basename(BASE_PATH); ?>/profile">Profile</a>
-                <a href="/<?php echo basename(BASE_PATH); ?>/logout">Logout (<?php echo htmlspecialchars($_SESSION['username']); ?>)</a>
+                <a href="/<?php echo basename(BASE_PATH); ?>/logout">Logout (<?php echo htmlspecialchars($_SESSION['name']); ?>)</a>
             <?php else: ?>
                 <a href="/<?php echo basename(BASE_PATH); ?>/login">Login</a>
                 <a href="/<?php echo basename(BASE_PATH); ?>/register">Register</a>
