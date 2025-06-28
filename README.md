@@ -56,8 +56,7 @@ Composer (optional, but good for PHP dependency management if you expand the pro
 
 1. Clone the repository:
 
-   ```
-   Bash
+   ```bash
    git clone <https://github.com/jus-tin-16/HashTagToDo.git>
    ```
 
@@ -82,8 +81,8 @@ Composer (optional, but good for PHP dependency management if you expand the pro
 4. Apache
 
    Look for ```.htaccess``` in ```/app/public/``` or just within the project folder and double check the configuration. 
-   ```
-   Apache
+
+   ```apache
 
    <IfModule mod_rewrite.c>
        RewriteEngine On
