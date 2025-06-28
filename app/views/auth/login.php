@@ -1,4 +1,3 @@
-PHP
 <?php include BASE_PATH . '/app/views/layouts/header.php'; ?>
 <!--  Login page -->
 <h2>Login</h2>
