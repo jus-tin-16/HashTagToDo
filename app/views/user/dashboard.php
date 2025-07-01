@@ -12,29 +12,31 @@
         </form>
 
         <ul class="todo-list">
-            <li class="todo-item">
-                <span class="todo-text"> # CAP101: Chapters 1-3</span>
-                <div class="todo-actions">
-                    <button class="complete-btn">Complete</button>
-                    <button class="delete-btn">Delete</button>
-                </div>
-            </li>
-            <li class="todo-item completed">
-                <span class="todo-text"># ERD and DFD</span>
-                <div class="todo-actions">
-                    <button class="complete-btn" disabled>Completed</button>
-                    <button class="delete-btn">Delete</button>
-                </div>
-            </li>
-            <li class="todo-item">
-                <span class="todo-text"># Call John Doe</span>
-                <div class="todo-actions">
-                    <button class="complete-btn" >Complete</button>
-                    <button class="delete-btn">Delete</button>
-                </div>
-            </li>
+            <?php if (!empty($userTasks)) {
+                foreach ($userTasks as $task) {
+                    if ($task['status'] == 'Not Completed'){
+                        echo '<li class="todo-item">';
+                        echo '<span class="todo-text"> # ' . $task["taskName"] .'</span>';
+                        echo '<div class="todo-actions">';
+                        echo '<button class="complete-btn">Complete</button>';
+                        echo '<button class="delete-btn">Delete</button>';
+                        echo '</div>';
+                        echo '</li>';
+                    } else {
+                        echo '<li class="todo-item completed">';
+                        echo '<span class="todo-text"> # ' . $task["taskName"] .'</span>';
+                        echo '<div class="todo-actions">';
+                        echo '<button class="complete-btn" disabled>Complete</button>';
+                        echo '<button class="delete-btn">Delete</button>';
+                        echo '</div>';
+                        echo '</li>';
+                    }
+                }
+            } else { 
+                echo '<p class="no-tasks-message" >No tasks yet! Add one above.</p>';
+            }
+            ?>
         </ul>
-        <p class="no-tasks-message" style="display: none;">No tasks yet! Add one above.</p>
     </div>
 
     <div class="dashboard-links">

@@ -7,6 +7,9 @@ class UserController {
             flash('error', 'Please log in to access the dashboard.');
             redirect('login');
         }
+
+        $taskModel = new Task;
+        $userTasks = $taskModel->getTask($_SESSION['user_Id']);
         // You might fetch user-specific data here if needed for the dashboard
         require_once BASE_PATH . '/app/views/user/dashboard.php';
     }

@@ -10,8 +10,10 @@ define('BASE_PATH', dirname(__DIR__)); //Points to HashTagTodo
 require_once BASE_PATH . '/app/config/database.php';
 require_once BASE_PATH . '/app/models/Database.php'; //Basic Database class
 require_once BASE_PATH . '/app/models/User.php'; //User Model
+require_once BASE_PATH . '/app/models/Task.php'; //Task Model
 require_once BASE_PATH . '/app/controllers/AuthController.php'; //Auth Controller
 require_once BASE_PATH . '/app/controllers/UserController.php'; //User controller for dashboard and profile
+require_once BASE_PATH . '/app/controllers/TaskController.php'; //Add Tasks
 require_once BASE_PATH . '/app/helpers/functions.php'; //Utility functions
 
 //Simple Routing
@@ -44,6 +46,9 @@ if($request_uri == ''|| $request_uri == 'home'){
 } elseif ($request_uri == 'profile' && isset($_SESSION['user_Id'])) { // Protected route
     $userController = new UserController;
     $userController->profile(); //For Profile edit/view 
+} elseif ($request_uri == 'add_todo' && isset($_SESSION['user_Id'])){
+    $taskController = new TaskController;
+    $taskController->add_todo();
 } else {
     // 404 error
     http_response_code(404);
