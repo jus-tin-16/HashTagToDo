@@ -1,91 +1,512 @@
-body {
-  font-family: sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f4f4f4;
-  color: #333;
-  line-height: 1.6;
+/* Retro-themed style.css - Adjusted for pleasant and colorblind-friendly design */
+
+:root {
+    /* Adjusted Retro Color Palette: Muted Yellow, Dark Grey, and subtle accents */
+    --primary-color: #FDD835; /* Muted Yellow (Amber 400 from Material Design) */
+    --primary-hover-color: #FFC107; /* Slightly brighter yellow for hover (Amber 500) */
+    --text-color: #212121; /* Very Dark Grey (Grey 900) - less harsh than pure black */
+    --light-text-color: #616161; /* Medium Grey (Grey 700) for subtle text */
+    --border-color: #424242; /* Dark Grey border (Grey 800) */
+    --background-color: #EEEEEE; /* Light Grey background (Grey 200) - provides better contrast with dark text */
+    --card-background: #FFFFFF; /* White for card backgrounds - high contrast, clean */
+    --shadow-color: rgba(0, 0, 0, 0.25); /* Softer shadows */
+    --focus-glow: rgba(253, 216, 53, 0.4); /* Muted yellow glow for focus */
+    --error-red: #D32F2F; /* Muted Red (Red 700) */
+    --completed-green: #388E3C; /* Muted Green (Green 700) */
+    --accent-blue: #2196F3; /* A friendly blue for links/accents (Blue 500) */
 }
 
+body {
+    font-family: 'Press Start 2P', 'Pixelmix', monospace; /* Retaining pixelated font */
+    image-rendering: pixelated;
+    -webkit-font-smoothing: none;
+    -moz-osx-font-smoothing: grayscale;
+    font-smooth: never;
+
+    background-color: var(--background-color);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    line-height: 1.5;
+    color: var(--text-color); /* Dark grey text on light background */
+    border: 5px solid var(--primary-color); /* Muted yellow border around body */
+    box-sizing: border-box;
+}
+
+/* General Layout Elements */
 header {
-  background-color: #333;
-  color: #fff;
-  padding: 1rem 0;
-  text-align: center;
+    background-color: var(--text-color); /* Dark grey/black header */
+    color: var(--primary-color); /* Muted yellow text in header */
+    padding: 10px 0;
+    box-shadow: none;
+    border-bottom: 2px solid var(--primary-color);
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 nav a {
-  color: #fff;
-  text-decoration: none;
-  padding: 0 15px;
+    color: var(--primary-color); /* Muted yellow links */
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 0;
+    transition: background-color 0.1s ease;
+    border: 2px solid var(--primary-color);
+    text-shadow: 1px 1px 0px rgba(0,0,0,0.3); /* Softer text shadow */
+}
+
+nav a:hover {
+    background-color: var(--primary-color);
+    color: var(--text-color);
 }
 
 main {
-  padding: 20px;
-  max-width: 800px;
-  margin: 20px auto;
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-form div {
-  margin-bottom: 15px;
-}
-
-form label {
-  display: block;
-  margin-bottom: 5px;
-  font-weight: bold;
-}
-
-form input[type="text"],
-form input[type="email"],
-form input[type="password"] {
-  width: 100%;
-  padding: 8px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  box-sizing: border-box; /* Include padding and border in the element's total width and height */
-}
-
-form button {
-  background-color: #007bff;
-  color: white;
-  padding: 10px 15px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 16px;
-}
-
-form button:hover {
-  background-color: #0056b3;
-}
-
-.alert {
-  padding: 10px;
-  margin-bottom: 15px;
-  border-radius: 4px;
-}
-
-.alert-success {
-  background-color: #d4edda;
-  color: #155724;
-  border-color: #c3e6cb;
-}
-
-.alert-error {
-  background-color: #f8d7da;
-  color: #721c24;
-  border-color: #f5c6cb;
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 footer {
-  text-align: center;
-  margin-top: 30px;
-  padding: 20px;
-  background-color: #eee;
-  color: #555;
-  border-top: 1px solid #ddd;
+    background-color: var(--primary-color); /* Dark grey/black footer */
+    color: var(--text-color); /* Muted yellow text in footer */
+    text-align: center;
+    padding: 10px 0;
+    margin-top: auto;
+    border-top: 2px solid var(--primary-color);
+}
+
+/* Container Styles (Login, Register, Dashboard, Home, 404) */
+.login-container,
+.dashboard-container,
+.home-container,
+.error-page-container {
+    background-color: var(--card-background); /* White card background for contrast */
+    padding: 30px;
+    border-radius: 0;
+    box-shadow: 8px 8px 0px var(--shadow-color); /* Softer, subtle shadow */
+    border: 2px solid var(--border-color); /* Dark grey border */
+    width: 100%;
+    max-width: 450px;
+    box-sizing: border-box;
+    text-align: center;
+    animation: none;
+    position: relative;
+    color: var(--text-color); /* Dark grey text on white background */
+    margin: 20px auto;
+}
+
+/* Headings */
+h1, h2, h3 {
+    color: var(--text-color); /* Dark grey headings */
+    margin-bottom: 20px;
+    font-size: 32px;
+    font-weight: bold;
+    letter-spacing: normal;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 0px rgba(0,0,0,0.2); /* Softer pixelated text shadow */
+}
+
+h1 { font-size: 42px; }
+h2 { font-size: 28px; }
+h3 { font-size: 24px; }
+
+
+/* Form Elements */
+form div {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--text-color);
+    font-weight: bold;
+    font-size: 14px;
+    transition: none;
+}
+
+input[type="email"],
+input[type="password"],
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid var(--border-color);
+    border-radius: 0;
+    box-sizing: border-box;
+    font-size: 16px;
+    color: var(--text-color);
+    background-color: #F5F5F5; /* Very light grey input background for contrast */
+    transition: none;
+    outline: none;
+}
+
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="text"]:focus {
+    border-color: var(--primary-hover-color);
+    box-shadow: 4px 4px 0px var(--focus-glow);
+}
+
+button[type="submit"],
+.button {
+    background-color: var(--text-color); /* Dark grey/black button background */
+    color: var(--primary-color); /* Muted yellow button text */
+    padding: 12px 25px;
+    border: 2px solid var(--primary-color);
+    border-radius: 0;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    width: 100%;
+    margin-top: 15px;
+    transition: background-color 0.1s ease, transform 0.1s ease, box-shadow 0.1s ease;
+    letter-spacing: 1px;
+    box-shadow: 4px 4px 0px var(--primary-hover-color);
+    text-transform: uppercase;
+}
+
+button[type="submit"]:hover,
+.button:hover {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0px var(--primary-hover-color);
+}
+
+button[type="submit"]:active,
+.button:active {
+    transform: translate(4px, 4px);
+    box-shadow: 0px 0px 0px var(--primary-hover-color);
+}
+
+p {
+    margin-top: 15px;
+    font-size: 16px;
+    color: var(--text-color);
+}
+
+p a { /* General links */
+    color: var(--accent-blue); /* A pleasant blue for links */
+    text-decoration: underline; /* Emphasize links with underline */
+    font-weight: bold;
+    transition: color 0.1s ease;
+}
+
+p a:hover {
+    color: var(--primary-color); /* Link changes to yellow on hover */
+    text-decoration: none;
+}
+
+.button.secondary-button { /* Secondary button styling */
+    background-color: var(--light-text-color); /* Medium grey background for secondary */
+    color: var(--card-background); /* White text for secondary */
+    border: 2px solid var(--border-color); /* Dark grey border */
+    box-shadow: 4px 4px 0px var(--shadow-color); /* Softer shadow */
+}
+
+.button.secondary-button:hover {
+    background-color: var(--text-color); /* Darker grey on hover */
+    color: var(--primary-color); /* Yellow text on hover */
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0px var(--shadow-color);
+}
+
+/* Dashboard Specific Styles */
+.dashboard-container {
+    max-width: 850px;
+    padding: 25px;
+}
+
+.todo-section {
+    margin-top: 25px;
+    border-top: 2px solid var(--border-color);
+    padding-top: 20px;
+}
+
+.add-todo-form {
+    gap: 5px;
+    margin-bottom: 25px;
+}
+
+.add-todo-form input[type="text"] {
+    padding: 10px;
+}
+
+.add-todo-form button {
+    padding: 10px 15px;
+    font-size: 16px;
+}
+
+.todo-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.todo-item {
+    background-color: #FDFDFD; /* Very light background for items */
+    border: 2px solid var(--border-color);
+    border-radius: 0;
+    padding: 12px 15px;
+    margin-bottom: 10px;
+    box-shadow: 4px 4px 0px var(--shadow-color);
+}
+
+.todo-item:hover {
+    box-shadow: 6px 6px 0px var(--shadow-color);
+    transform: translate(-2px, -2px);
+}
+
+.todo-item.completed {
+    background-color: #DCEDC8; /* Light green for completed tasks (Light Green 100) */
+    border-left: 5px solid var(--completed-green); /* Muted green border */
+    opacity: 1;
+}
+
+.todo-item.completed .todo-text {
+    text-decoration: line-through;
+    color: var(--light-text-color);
+}
+
+.todo-text {
+    font-size: 16px;
+    color: var(--text-color);
+}
+
+.todo-actions button {
+    background-color: var(--text-color); /* Dark grey/black action buttons */
+    color: var(--primary-color); /* Muted yellow text */
+    border: 2px solid var(--primary-color);
+    padding: 6px 10px;
+    border-radius: 0;
+    font-size: 13px;
+    margin-left: 8px;
+    box-shadow: 2px 2px 0px var(--primary-hover-color);
+}
+
+.todo-actions button:hover {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    transform: translate(1px, 1px);
+    box-shadow: 1px 1px 0px var(--primary-hover-color);
+}
+
+
+.todo-actions .complete-btn {
+    background-color: var(--text-color);
+    color: var(--primary-color);
+}
+
+.todo-actions .complete-btn.completed {
+    background-color: var(--completed-green); /* Muted green when marked as completed */
+    color: white;
+    border-color: var(--completed-green);
+    box-shadow: 2px 2px 0px rgba(0,0,0,0.4);
+}
+
+.todo-actions .delete-btn {
+    background-color: var(--error-red); /* Muted red */
+    color: white;
+    border-color: var(--error-red);
+    box-shadow: 2px 2px 0px rgba(0,0,0,0.4);
+}
+.todo-actions .delete-btn:hover {
+    background-color: darken(var(--error-red), 10%);
+}
+
+
+/* 404 Page Specific Styles */
+.error-page-container {
+    padding: 40px;
+    max-width: 550px;
+}
+
+.error-code {
+    font-size: 90px;
+    color: var(--text-color); /* Dark grey 404 text */
+    margin-bottom: 5px;
+    text-shadow: 4px 4px 0px var(--primary-color); /* Muted yellow pixelated shadow */
+}
+
+.error-page-container h2 {
+    font-size: 30px;
+    margin-bottom: 15px;
+    color: var(--text-color);
+}
+
+.error-page-container p {
+    font-size: 17px;
+    margin-bottom: 20px;
+}
+
+.error-actions {
+    margin-top: 25px;
+    gap: 10px;
+}
+
+
+/* Home Page Specific Styles */
+.home-container {
+    max-width: 650px;
+    padding: 40px;
+}
+
+.home-container h1 {
+    font-size: 48px;
+    margin-bottom: 15px;
+}
+
+.home-container p {
+    font-size: 20px;
+    margin-bottom: 25px;
+}
+
+.home-actions {
+    margin-top: 25px;
+    gap: 15px;
+}
+
+.home-actions .button {
+    padding: 15px 30px;
+    font-size: 18px;
+}
+
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    body {
+        border: none;
+    }
+    .login-container,
+    .dashboard-container,
+    .home-container,
+    .error-page-container {
+        padding: 20px;
+        max-width: 95%;
+        margin: 10px auto;
+        box-shadow: 4px 4px 0px var(--shadow-color);
+    }
+
+    h1 { font-size: 32px; }
+    h2 { font-size: 24px; }
+    h3 { font-size: 20px; }
+
+    nav {
+        gap: 10px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    nav a {
+        padding: 4px 8px;
+        font-size: 14px;
+        border-width: 1px;
+    }
+
+    button[type="submit"],
+    .button {
+        padding: 10px 20px;
+        font-size: 16px;
+        box-shadow: 2px 2px 0px var(--primary-hover-color);
+    }
+    button[type="submit"]:hover, .button:hover {
+        transform: translate(1px, 1px);
+        box-shadow: 1px 1px 0px var(--primary-hover-color);
+    }
+    button[type="submit"]:active, .button:active {
+        transform: translate(2px, 2px);
+        box-shadow: 0px 0px 0px var(--primary-hover-color);
+    }
+
+    .error-code {
+        font-size: 70px;
+    }
+
+    .todo-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+        padding: 10px 15px;
+        box-shadow: 2px 2px 0px rgba(0,0,0,0.05);
+    }
+    .todo-actions {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+    }
+    .todo-actions button {
+        margin-left: 5px;
+        padding: 5px 8px;
+        font-size: 12px;
+        border-width: 1px;
+        box-shadow: 1px 1px 0px var(--primary-hover-color);
+    }
+    .todo-actions button:hover {
+        transform: translate(0.5px, 0.5px);
+    }
+}
+
+/* Add this to your existing style.css */
+
+/* Profile Page Specific Styles */
+.profile-page-container {
+    max-width: 500px; /* Adjust width as needed for profile content */
+    padding: 40px; /* Consistent padding */
+}
+
+.profile-info {
+    margin-bottom: 30px;
+    text-align: left; /* Align text to the left within info block */
+    border: 2px solid var(--border-color); /* Add a border for visual separation */
+    padding: 20px;
+    background-color: #FDFDFD; /* Slightly different background for info block */
+    box-shadow: 4px 4px 0px var(--shadow-color); /* Consistent shadow */
+}
+
+.profile-info p {
+    margin-bottom: 10px;
+    font-size: 17px;
+    color: var(--text-color);
+}
+
+.profile-info p:last-child {
+    margin-bottom: 0;
+}
+
+.profile-info strong {
+    color: var(--light-text-color); /* Make labels slightly lighter */
+}
+
+.profile-actions {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column; /* Stack buttons vertically */
+    gap: 15px; /* Space between buttons */
+}
+
+/* Ensure buttons within profile-actions take up full width */
+.profile-actions .button {
+    width: 87%;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 500px) {
+    .profile-page-container {
+        padding: 30px 20px;
+        max-width: 90%;
+    }
+    .profile-info {
+        padding: 15px;
+    }
 }
