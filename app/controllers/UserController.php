@@ -18,7 +18,7 @@ class UserController {
         }
 
         $userModel = new User();
-        //$user = $userModel->getUserById($_SESSION['user_Id']);
+        $user = $userModel->getUserById($_SESSION['user_Id']);
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $name = trim($_POST['name']);
