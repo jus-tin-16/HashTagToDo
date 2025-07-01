@@ -22,4 +22,3 @@
         </nav>
     </header>
     <main>
-        <?php display_flash_messages(); ?>

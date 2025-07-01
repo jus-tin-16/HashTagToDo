@@ -45,7 +45,7 @@ class AuthController {
 
             //Create user
             if ($userModel->createUser($name, $email, $hashedPass)){
-                //flash('success', 'Registration successful! You can now login.');
+                flash('success', 'Registration successful! You can now login.');
                 redirect('login');
             } else {
                 flash('error', 'Something went wrong during registration.');
@@ -78,7 +78,7 @@ class AuthController {
                 $_SESSION['name'] = $user['name'];
                 $_SESSION['email'] = $user['email'];
 
-                /*flash('success', 'Welcome, ' . $user['name'] . '!');*/
+                flash('success', 'Logged in successfully!');
                 redirect('dashboard');
             } else {
                 flash('error', 'Invalid username or password.');

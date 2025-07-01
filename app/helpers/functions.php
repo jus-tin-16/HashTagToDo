@@ -18,7 +18,7 @@ function flash($type, $message) {
 function display_flash_messages() {
     if (isset($_SESSION['flash_messages']) && !empty($_SESSION['flash_messages'])) {
         foreach ($_SESSION['flash_messages'] as $type => $message) {
-            echo '<div class="alert alert-' . $type . '">' . htmlspecialchars($message) . '</div>';
+            echo '<div class="alert container-' . $type .'"><div class="alert alert-' . $type . '">' . htmlspecialchars($message) . '</div></div>';
         }
         unset($_SESSION['flash_messages']); // Clear messages after displaying
     }

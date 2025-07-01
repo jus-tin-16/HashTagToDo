@@ -1,5 +1,6 @@
 <?php include BASE_PATH . '/app/views/layouts/header.php'; ?>
 <div class="dashboard-container">
+    <?php display_flash_messages(); ?>
     <h2>Welcome to Your Dashboard, <?php echo htmlspecialchars($_SESSION['name']); ?>!</h2>
     <p>Manage your tasks efficiently.</p>
 
@@ -12,23 +13,23 @@
 
         <ul class="todo-list">
             <li class="todo-item">
-                <span class="todo-text">CAP101: Chapters 1-3</span>
+                <span class="todo-text"> # CAP101: Chapters 1-3</span>
                 <div class="todo-actions">
                     <button class="complete-btn">Complete</button>
                     <button class="delete-btn">Delete</button>
                 </div>
             </li>
             <li class="todo-item completed">
-                <span class="todo-text">ERD and DFD</span>
+                <span class="todo-text"># ERD and DFD</span>
                 <div class="todo-actions">
-                    <button class="complete-btn">Completed</button>
+                    <button class="complete-btn" disabled>Completed</button>
                     <button class="delete-btn">Delete</button>
                 </div>
             </li>
             <li class="todo-item">
-                <span class="todo-text">Call John Doe</span>
+                <span class="todo-text"># Call John Doe</span>
                 <div class="todo-actions">
-                    <button class="complete-btn">Complete</button>
+                    <button class="complete-btn" >Complete</button>
                     <button class="delete-btn">Delete</button>
                 </div>
             </li>

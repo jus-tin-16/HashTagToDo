@@ -1,6 +1,7 @@
 <?php include BASE_PATH . '/app/views/layouts/header.php'; ?>
 <div class="login-container">
     <h2>Register</h2>
+    <?php display_flash_messages(); ?>
     <form action="/<?php echo basename(BASE_PATH); ?>/register" method="POST">
         <div>
             <label for="name">Name:</label>
